@@ -1,4 +1,4 @@
-feature "Enter names" do
+feature "enter names" do
   scenario "submitting names" do
     visit('/')
     fill_in :player_1, with: 'Pikachu'
