@@ -1,10 +1,9 @@
 require 'player'
 
 describe Player do
-  let(:name) { double :name }
-  subject(:player) { described_class.new(name) }
+  subject(:pikachu) { described_class.new('Pikachu') }
 
   it 'returns player 1 name' do
-    expect(player.name).to eq name
+    expect(pikachu.name).to eq 'Pikachu'
   end
 end
