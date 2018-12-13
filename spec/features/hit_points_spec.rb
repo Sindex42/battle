@@ -1,22 +1,27 @@
 feature 'Seeing hit points' do
-  scenario 'viewing player 1 hit points' do
-    sign_in_and_play()
+  background { sign_in_and_play() }
 
-    expect(page).to have_content('Charizard: 10HP')
+  scenario 'viewing player 1 HP' do
+    expect(page).to have_content('Charizard: 100HP')
   end
 
-  scenario 'viewing player 2 hit points' do
-    sign_in_and_play()
-
-    expect(page).to have_content('Pikachu: 10HP')
+  scenario 'viewing player 2 HP' do
+    expect(page).to have_content('Pikachu: 100HP')
   end
 end
 
 feature 'Attacking' do
-  scenario 'attack Player 2' do
+  background do
     sign_in_and_play()
-
     click_button 'Attack'
+  end
+
+  scenario 'confirms attack on Player 2' do
     expect(page).to have_content('Pikachu attacked Charizard!')
+  end
+
+  scenario 'decrements Player 2 HP by 10' do
+    expect(page).not_to have_content('Charizard: 100HP')
+    expect(page).to have_content('Charizard: 90HP')
   end
 end

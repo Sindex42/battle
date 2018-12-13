@@ -1,7 +1,9 @@
-<h1>A wild <%= @player_1 %> and <%= @player_2 %> appeared!</h1>
-<h2><%= @player_1 %>: 10HP </h2>
-<h2><%= @player_2 %>: 10HP </h2>
+<h1>A wild <%= @player_1.name %> and <%= @player_2.name %> appeared!</h1>
+
+<h2><%= @player_1.name %>: <%= @player_1.hp %>HP </h2>
+<h2><%= @player_2.name %>: <%= @player_2.hp %>HP </h2>
 
 <form action="attack">
   <input type="submit" value="Attack">
+  <% $player_1.attack($player_2) %>
 </form>
