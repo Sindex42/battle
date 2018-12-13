@@ -1,4 +1,4 @@
-feature 'seeing hit points' do
+feature 'Seeing hit points' do
   scenario 'viewing player 1 hit points' do
     sign_in_and_play()
 
