@@ -17,15 +17,9 @@ describe Player do
   end
 
   describe '#receive_damage' do
-    it 'damages the player' do
-      expect(charizard).to receive(:receive_damage)
-      pikachu.attack(charizard)
-    end
-  end
-
-  describe '#attack' do
     it 'reduces player HP' do
-      expect { pikachu.attack(charizard) }.to change { charizard.hp }.by -Player::MIN_DAMAGE
+      damage = -described_class::MIN_DAMAGE
+      expect { charizard.receive_damage }.to change { charizard.hp }.by damage
     end
   end
 end
